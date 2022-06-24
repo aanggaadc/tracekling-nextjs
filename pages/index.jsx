@@ -9,7 +9,7 @@ import Layout from '../components/layout/Layout'
 import Axios from 'axios'
 import {API_URL} from '../config/url'
 import { RiArrowRightCircleFill } from "react-icons/ri";
-import TripRecomendation from '../components/TripRecomendation'
+import TripRecomendation from '../components/home/TripRecomendation'
 import TripUser from '../components/home/TripUser'
 import Team from '../components/home/Team'
 

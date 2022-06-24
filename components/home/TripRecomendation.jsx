@@ -1,11 +1,11 @@
 import Link from 'next/link'
 import { Button, Card, Row, Col } from "react-bootstrap";
-import { API_URL } from "../config/url";
+import { API_URL } from "../../config/url";
 import { Swiper, SwiperSlide } from 'swiper/react'
 import 'swiper/css'
 import 'swiper/css/pagination'
 import { Pagination } from 'swiper'
-import styles from './home/TripUser.module.css'
+import styles from './TripUser.module.css'
 
 function TripRecomendation({ data }) {
   return (

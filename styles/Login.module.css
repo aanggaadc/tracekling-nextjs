@@ -1,0 +1,156 @@
+#background_login {
+	background-image: url("../public/assets/login.jpg");
+	height: 100vh;
+	background-size: cover;
+	background-position: center;
+}
+
+#background_login::before {
+	content: "";
+	background: rgba(6, 12, 34, 0.7);
+	position: absolute;
+	bottom: 0;
+	top: 0;
+	left: 0;
+	right: 0;
+	height: auto;
+}
+
+.head_login {
+	display: flex;
+	flex-direction: column;
+	z-index: 999;
+	justify-content: center;
+	align-items: center;
+}
+.head_login .logo img {
+	width: 20rem;
+}
+
+.head_login svg {
+	font-size: 2rem;
+	color: #fff;
+}
+
+.container_login {
+	display: flex;
+}
+
+.content_login {
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	gap: 2rem;
+	z-index: 5;
+}
+
+.content_login .title {
+	color: white;
+	filter: brightness(120%);
+	font-size: 2rem;
+}
+
+#form_login {
+	display: flex;
+	flex-direction: column;
+	gap: 0.75rem;
+	z-index: 999;
+}
+
+#form_login input {
+	background-color: transparent;
+	border: none;
+	border-bottom: 1px solid white;
+	border-radius: 0;
+	color: #fff;
+}
+
+#form_login input:focus {
+	border: 1px solid #fff;
+	box-shadow: none;
+}
+
+#form_login .btn_login {
+	display: flex;
+	justify-content: center;
+}
+
+#form_login .btn_login button {
+	width: 100%;
+}
+
+#form_login .btn_login button:active {
+	box-shadow: none;
+	outline: 0;
+}
+
+#form_login .btn_login button {
+	width: 100%;
+	border-radius: 0;
+	background-color: transparent;
+	border-color: #fff;
+	position: relative;
+	z-index: 1;
+}
+
+#form_login .btn_login button::before {
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: #188cbd;
+	z-index: -1;
+	transform: scaleX(0);
+	transform-origin: left;
+	transition: transform 0.3s ease-in-out;
+}
+
+#form_login .btn_login button:hover::before {
+	transform: scaleX(1);
+	transform-origin: right;
+}
+
+.login_text {
+	z-index: 999;
+	font-family: "Raleway", sans-serif;
+}
+
+.login_text a:hover {
+	color: #188cbd;
+}
+
+.login_text p {
+	font-size: 17px;
+	color: #fff;
+	font-weight: 300;
+}
+
+.login_text p:last-child {
+	margin-top: -1.2rem;
+}
+
+.login_text p a {
+	color: #fff;
+	font-weight: 700;
+	text-decoration: none;
+}
+
+@media (max-width: 575.98px) {
+	.container_login {
+		flex-direction: column;
+	}
+
+	.login .logo img {
+		width: 15rem;
+	}
+
+	.login .text {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
+}

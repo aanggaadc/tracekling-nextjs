@@ -12,6 +12,7 @@ import { RiArrowRightCircleFill } from "react-icons/ri";
 import TripRecomendation from '../components/home/TripRecomendation'
 import TripUser from '../components/home/TripUser'
 import Team from '../components/home/Team'
+import { ToastContainer } from "react-toastify";
 
 const Home = () => {
   const [dataTrip, setDataTrip] = useState([]);
@@ -131,103 +132,102 @@ const Home = () => {
         </Head>
 
         <Layout>
-
-        <section id={styles.banner}>
-            <div className={styles.banner_container}>
-                <h1 className="mb-4 pb-0"> Make Your Travel <span>Dreams</span> <br /> Come True Here</h1>
-                <Link href='/trips'>
-                  <div className={styles.about}>
-                    GO EXPLORE
-                  </div>
-                </Link>
-            </div>
-        </section>
-
-        <main id={styles.main}>
-				<section id={styles.recomendation} >
-					<div className="container mt-5">
-						<div className={styles.recomendation}>
-							<h2>OUR RECOMMENDATION</h2>
-							<p>Here are interesting places to visit, you can thank us later!</p>
-						</div>
-
-						<div className={styles.tags}>
-							<Button
-								onClick={() => {
-									setPageStateRecomendation({ ...pageStateRecomendation, destination: "bali" });
-									onSetActiveMenuItem("button1")
-								}}
-								className={active === "button1" ? styles.tags_btn_active : styles.tags_btn }
-							>
-								{" "}
-								Bali
-							</Button>
-							<Button
-								onClick={() => {
-									setPageStateRecomendation({ ...pageStateRecomendation, destination: "bandung" });
-									onSetActiveMenuItem("button2")
-								}}
-								className={active === "button2" ? styles.tags_btn_active : styles.tags_btn}
-							>
-								{" "}
-								Bandung
-							</Button>
-							<Button
-								onClick={() => {
-									setPageStateRecomendation({ ...pageStateRecomendation, destination: "semarang" });
-									onSetActiveMenuItem("button3")
-								}}
-								className={active === "button3" ? styles.tags_btn_active : styles.tags_btn}
-							>
-								{" "}
-								Semarang
-							</Button>
-							<Button
-								onClick={() => {
-									setPageStateRecomendation({ ...pageStateRecomendation, destination: "jakarta" });
-									onSetActiveMenuItem("button4")
-								}}
-								className={active === "button4" ? styles.tags_btn_active : styles.tags_btn}
-							>
-								{" "}
-								Jakarta
-							</Button>
-							<Button
-								onClick={() => {
-									setPageStateRecomendation({
-										...pageStateRecomendation,
-										destination: "labuan bajo",
-									});
-									onSetActiveMenuItem("button5")
-								}}
-								className={active === "button5" ? styles.tags_btn_active : styles.tags_btn}
-							>
-								{" "}
-								Labuan Bajo
-							</Button>
-						</div>
-
-						<div className="mt-3 text-center">{recomendation()}</div>
-
-						<hr className={styles.line} />
+			<section id={styles.banner}>
+				<div className={styles.banner_container}>
+					<h1 className="mb-4 pb-0"> Make Your Travel <span>Dreams</span> <br /> Come True Here</h1>
+					<Link href='/trips'>
+					<div className={styles.about}>
+						GO EXPLORE
 					</div>
-				</section>
+					</Link>
+				</div>
+			</section>
 
-				<section id="trips">
-					<div className="container mt-5">
-						<div className={styles.recomendation}>
-							<h2>New TRIPS</h2>
-							<p>Latest Trips Available to Join</p>
+			<main id={styles.main}>
+					<section id={styles.recomendation} >
+						<div className="container mt-5">
+							<div className={styles.recomendation}>
+								<h2>OUR RECOMMENDATION</h2>
+								<p>Here are interesting places to visit, you can thank us later!</p>
+							</div>
+
+							<div className={styles.tags}>
+								<Button
+									onClick={() => {
+										setPageStateRecomendation({ ...pageStateRecomendation, destination: "bali" });
+										onSetActiveMenuItem("button1")
+									}}
+									className={active === "button1" ? styles.tags_btn_active : styles.tags_btn }
+								>
+									{" "}
+									Bali
+								</Button>
+								<Button
+									onClick={() => {
+										setPageStateRecomendation({ ...pageStateRecomendation, destination: "bandung" });
+										onSetActiveMenuItem("button2")
+									}}
+									className={active === "button2" ? styles.tags_btn_active : styles.tags_btn}
+								>
+									{" "}
+									Bandung
+								</Button>
+								<Button
+									onClick={() => {
+										setPageStateRecomendation({ ...pageStateRecomendation, destination: "semarang" });
+										onSetActiveMenuItem("button3")
+									}}
+									className={active === "button3" ? styles.tags_btn_active : styles.tags_btn}
+								>
+									{" "}
+									Semarang
+								</Button>
+								<Button
+									onClick={() => {
+										setPageStateRecomendation({ ...pageStateRecomendation, destination: "jakarta" });
+										onSetActiveMenuItem("button4")
+									}}
+									className={active === "button4" ? styles.tags_btn_active : styles.tags_btn}
+								>
+									{" "}
+									Jakarta
+								</Button>
+								<Button
+									onClick={() => {
+										setPageStateRecomendation({
+											...pageStateRecomendation,
+											destination: "labuan bajo",
+										});
+										onSetActiveMenuItem("button5")
+									}}
+									className={active === "button5" ? styles.tags_btn_active : styles.tags_btn}
+								>
+									{" "}
+									Labuan Bajo
+								</Button>
+							</div>
+
+							<div className="mt-3 text-center">{recomendation()}</div>
+
+							<hr className={styles.line} />
 						</div>
+					</section>
 
-						<div className="text-center">{trip()}</div>
-					</div>
-				</section>
-			</main>
+					<section id="trips">
+						<div className="container mt-5">
+							<div className={styles.recomendation}>
+								<h2>New TRIPS</h2>
+								<p>Latest Trips Available to Join</p>
+							</div>
 
-      <Team />
+							<div className="text-center">{trip()}</div>
+						</div>
+					</section>
+				</main>
 
-        </Layout>        
+				<Team />
+        </Layout>   
+		<ToastContainer />     
     </>    
     
   )

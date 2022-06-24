@@ -5,13 +5,11 @@ import {useRouter} from 'next/router'
 import styles from '../styles/Login.module.css'
 import { BsFillArrowLeftCircleFill } from "react-icons/bs";
 import { Button, OverlayTrigger, Tooltip } from "react-bootstrap";
-
-
 import Logo from "../public/trackeling.png";
 import { Formik } from "formik";
 import Axios from "axios";
 import { API_URL } from "../config/url";
-import { toast } from "react-toastify";
+import { toast, ToastContainer } from "react-toastify";
 // import { useDispatch } from "react-redux";
 // import { bindActionCreators } from "redux";
 // import { actionCreators } from "../../store/index";
@@ -90,9 +88,6 @@ function Login() {
                                     placeholder="Email"
                                     onChange={handleChange}
                                 />
-                                {/* <small id="emailHelp" className="text-danger form-text">
-                    {emailError}
-                </small> */}
                             </div>
 
                             <div className="form-group mt-3">
@@ -104,7 +99,6 @@ function Login() {
                                     placeholder="Password"
                                     onChange={handleChange}
                                 />
-                                {/* <small id="passworderror" className="text-danger form-text"></small> */}
                             </div>
 
                             <div className={styles.btn_login}>
@@ -124,7 +118,8 @@ function Login() {
                         Admin? <Link href="/login-admin">Login Here!</Link>
                     </p>
                 </div>
-            </div>        
+            </div>
+            <ToastContainer />        
         </>		
 	);
 }

@@ -1,0 +1,27 @@
+.card_trip {
+    overflow: hidden;    
+}
+
+.card_imgTrip{
+    transition: all ease-in-out 0.4s;
+    object-fit: cover;
+	object-position: center;
+	/* overflow: hidden; */
+	height: 25vh;
+}
+
+.card_imgTrip:hover{
+    transform: scale(1.1);
+}
+
+.trip_button{
+	background-color: #188CBD;
+	color: white;
+	border-radius: 5px ;
+	border-style: none;
+	transition: 0.5s;
+}
+
+.trip_button:hover{
+	background-color: #0e1b4d;
+}

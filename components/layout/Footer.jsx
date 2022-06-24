@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import Image from 'next/image'
-import Logo from "../public/trackeling.png"
+import Logo from "../../public/trackeling.png"
 import styles from './Footer.module.css'
 import { BsTwitter, BsFacebook, BsInstagram, BsLinkedin } from "react-icons/bs";
 

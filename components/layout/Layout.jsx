@@ -5,8 +5,12 @@ function Layout({children}) {
     return (
         <>
         <Navbar />
+
         {children}
-        <Footer />
+
+        <div style={{marginTop: "100px"}}>
+            <Footer />
+        </div>
         </>        
     )
 }

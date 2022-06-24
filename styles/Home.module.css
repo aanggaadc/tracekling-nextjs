@@ -2,6 +2,7 @@
 	margin-bottom: 60px;
 	position: relative;
 	padding-bottom: 20px;
+  font-family: "Raleway", sans-serif;
 }
 
 .recomendation::before {
@@ -47,13 +48,13 @@
 	gap: 15px;
 }
 
-.tags .tags-btn {
+.tags .tags_btn {
 	background-color: transparent;
 	border: 1px solid rgb(83, 130, 177);
 	color: #188cbd;
 }
 
-.tags .tags-btn-active {
+.tags .tags_btn_active {
 	background-color: #0e1b4d !important;
 	color: white !important;
 	box-shadow: none !important;
@@ -70,15 +71,10 @@
 	}
 }
 
-.link-trip:hover {
-	color: #0e1b4d;
-}
-
-
 #banner {
     width: 100%;
     height: 100vh;
-    background: url(../public/banner.jpg) top center;
+    background: url(../public/assets/banner.jpg) top center;
     background-size: cover;
     overflow: hidden;
     position: relative;

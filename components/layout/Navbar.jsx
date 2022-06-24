@@ -2,7 +2,7 @@ import {useState} from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import styles from './Navbar.module.css'
-import Logo from '../public/trackeling.png'
+import Logo from '../../public/trackeling.png'
 import { VscListFlat } from "react-icons/vsc";
 import { BiChevronDown, BiX } from "react-icons/bi";
 

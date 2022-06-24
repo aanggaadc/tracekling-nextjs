@@ -11,6 +11,7 @@ import {API_URL} from '../config/url'
 import { RiArrowRightCircleFill } from "react-icons/ri";
 import TripRecomendation from '../components/TripRecomendation'
 import TripUser from '../components/home/TripUser'
+import Team from '../components/home/Team'
 
 const Home = () => {
   const [dataTrip, setDataTrip] = useState([]);
@@ -223,6 +224,8 @@ const Home = () => {
 					</div>
 				</section>
 			</main>
+
+      <Team />
 
         </Layout>        
     </>    

@@ -7,10 +7,9 @@ function Layout({children}) {
         <Navbar />
 
         {children}
-
-        <div style={{marginTop: "100px"}}>
-            <Footer />
-        </div>
+      
+        <Footer />
+        
         </>        
     )
 }

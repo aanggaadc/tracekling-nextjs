@@ -307,6 +307,13 @@
 	display: block;
 }
 
+.avatar{
+	height: 40px;
+	width: 40px;
+	border-radius: 50px;
+	overflow: hidden;
+}
+
 @media (max-width: 990px) {
 	.account{
 		margin-left: 20px;

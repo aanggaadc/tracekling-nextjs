@@ -64,7 +64,7 @@ function Login() {
                             .then((response) => {
                                 // fillUser(response.data.data);
                                 localStorage.setItem("authKey", JSON.stringify(response.data.data));
-                                router.push("/");
+                                router.push('/')
                                 toast.success("Welcome to Our Site!");
                             })
                             .catch((error) => {

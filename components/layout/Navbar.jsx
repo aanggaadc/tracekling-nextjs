@@ -87,8 +87,8 @@ function Navbar() {
 								</li>
 								<li className={styles.dropdown}>
 									<div className={`d-flex ${styles.account}`}>
-										<div className="rounded-circle">
-											<Image src={`${API_URL}${userData.avatar}`} width="40px" height="40px" /> 
+										<div className={styles.avatar}>
+											<Image src={`${API_URL}${userData.avatar}`} width="40px" height="40px"/>						
 										</div>
 										<a href="#">
 											{userData.username.toUpperCase()}

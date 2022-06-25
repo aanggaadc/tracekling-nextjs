@@ -3,9 +3,11 @@ import "react-toastify/dist/ReactToastify.css";
 import {ToastContainer} from 'react-toastify'
 import {useEffect, useState } from 'react'
 import {UserContext} from '../utils/userContext'
+import {useRouter} from 'next/router'
 
 function MyApp({ Component, pageProps }) {
   const [authData, setAuthData] = useState(false)
+  const router = useRouter()
 
   useEffect(() => {
     if(localStorage.getItem("authKey")){
@@ -16,7 +18,7 @@ function MyApp({ Component, pageProps }) {
   return (
     <>
       <UserContext.Provider value={authData}>
-          <Component {...pageProps} />
+          <Component key={router.asPath} {...pageProps} />
       </UserContext.Provider>
       <ToastContainer />
     </>

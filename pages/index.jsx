@@ -12,7 +12,7 @@ import { RiArrowRightCircleFill } from "react-icons/ri";
 import TripRecomendation from '../components/home/TripRecomendation'
 import TripUser from '../components/home/TripUser'
 import Team from '../components/home/Team'
-import { ToastContainer } from "react-toastify";
+import { toast } from 'react-toastify'
 
 const Home = () => {
   const [dataTrip, setDataTrip] = useState([]);
@@ -115,7 +115,6 @@ const Home = () => {
 	useEffect(() => {
 		getRecomendationList();
 		getTripList();
-		document.title= "HOME"
 	}, []);
 
 	useEffect(() => {
@@ -159,7 +158,6 @@ const Home = () => {
 									}}
 									className={active === "button1" ? styles.tags_btn_active : styles.tags_btn }
 								>
-									{" "}
 									Bali
 								</Button>
 								<Button
@@ -169,7 +167,6 @@ const Home = () => {
 									}}
 									className={active === "button2" ? styles.tags_btn_active : styles.tags_btn}
 								>
-									{" "}
 									Bandung
 								</Button>
 								<Button
@@ -179,7 +176,6 @@ const Home = () => {
 									}}
 									className={active === "button3" ? styles.tags_btn_active : styles.tags_btn}
 								>
-									{" "}
 									Semarang
 								</Button>
 								<Button
@@ -189,7 +185,6 @@ const Home = () => {
 									}}
 									className={active === "button4" ? styles.tags_btn_active : styles.tags_btn}
 								>
-									{" "}
 									Jakarta
 								</Button>
 								<Button
@@ -202,7 +197,6 @@ const Home = () => {
 									}}
 									className={active === "button5" ? styles.tags_btn_active : styles.tags_btn}
 								>
-									{" "}
 									Labuan Bajo
 								</Button>
 							</div>
@@ -226,8 +220,7 @@ const Home = () => {
 				</main>
 
 				<Team />
-        </Layout>   
-		<ToastContainer />     
+        </Layout>      
     </>    
     
   )

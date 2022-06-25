@@ -303,13 +303,8 @@
 .navbar_mobile .dropdown ul li:hover > a {
 	color: #188cbd;
 }
-.navbar_mobile .dropdown > .dropdown-active {
+.navbar_mobile .dropdown > .dropdown_active {
 	display: block;
-}
-
-.nav_avatar {
-	width: 40px;
-	height: 40px;
 }
 
 @media (max-width: 990px) {

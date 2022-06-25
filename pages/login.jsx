@@ -9,7 +9,7 @@ import Logo from "../public/trackeling.png";
 import { Formik } from "formik";
 import Axios from "axios";
 import { API_URL } from "../config/url";
-import { toast, ToastContainer } from "react-toastify";
+import { toast } from "react-toastify";
 // import { useDispatch } from "react-redux";
 // import { bindActionCreators } from "redux";
 // import { actionCreators } from "../../store/index";
@@ -118,8 +118,7 @@ function Login() {
                         Admin? <Link href="/login-admin">Login Here!</Link>
                     </p>
                 </div>
-            </div>
-            <ToastContainer />        
+            </div>     
         </>		
 	);
 }

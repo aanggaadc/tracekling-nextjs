@@ -1,16 +1,20 @@
-import {useState} from 'react'
+import {useState, useContext} from 'react'
+import {useRouter} from 'next/router'
 import Link from 'next/link'
 import Image from 'next/image'
 import styles from './Navbar.module.css'
 import Logo from '../../public/trackeling.png'
 import { VscListFlat } from "react-icons/vsc";
 import { BiChevronDown, BiX } from "react-icons/bi";
+import {API_URL} from '../../config/url'
+import {toast} from 'react-toastify'
+import {UserContext} from '../../utils/userContext'
 
 function Navbar() {
 	const [activeMobile, setActiveMobile] = useState(false);
 	const [activeDropdown, setActiveDropdown] = useState(false);
-	// const authData = useAuth();
-	// const navigate = useNavigate();
+	const userData = useContext(UserContext)
+	const router = useRouter();
 	// const dispatch = useDispatch();
 	// const { clearUser } = bindActionCreators(actionCreators, dispatch);
 	// const { user } = useSelector((state) => {
@@ -42,10 +46,10 @@ function Navbar() {
 	};
 
 	const handleLogout = () => {
-		clearUser();
-		navigate("/");
+		// clearUser();
 		toast.success("You are logged out, see ya!!");
 		localStorage.removeItem("authKey");
+		router.push("/login");
 	};
 
 	return (
@@ -74,63 +78,56 @@ function Navbar() {
 								TRIPS
 							</Link>
 						</li>
-						{/* {authData ? (
+						{userData ? 
 							<>
-								<li>
-									<Link className="nav-link" to="/trip/create">
+								<li className='nav-link'>
+									<Link className="nav-link" href="/trip/create">
 										CREATE TRIP
 									</Link>
 								</li>
-								<li className="dropdown">
-									<div className="d-flex account">
-										<img src={`${API_URL}/${user.avatar}`} className="rounded-circle nav-avatar" />
+								<li className={styles.dropdown}>
+									<div className={`d-flex ${styles.account}`}>
+										<div className="rounded-circle">
+											<Image src={`${API_URL}${userData.avatar}`} width="40px" height="40px" /> 
+										</div>
 										<a href="#">
-											{authData.username.toUpperCase()}
+											{userData.username.toUpperCase()}
 											<i>
 												<BiChevronDown size={25} onClick={toggleDropdownMenu} />
 											</i>
 										</a>
 									</div>
 
-									<ul className={activeDropdown ? "dropdown-active" : ""}>
+									<ul className={activeDropdown ? styles.dropdown_active : ""}>
 										<li>
-											<Link to={`/user/account`}>SETTING ACCOUNT</Link>
+											<Link href="/user/account">SETTING ACCOUNT</Link>
 										</li>
 										<li>
-											<Link to={`/user/mytrip`}>MY TRIP</Link>
+											<Link href="/user/mytrip">MY TRIP</Link>
 										</li>
 									</ul>
 								</li>
 							</>
-						) : (
+						 : 
 							<li>
-								<Link className="nav-link" to="/signup">
-									REGISTER
-								</Link>
-							</li>
-						)} */}
-                            <li>
 								<Link className="nav-link" href="/signup">
 									REGISTER
 								</Link>
 							</li>
-
+						}
 					</ul>
 					{mobileNav()}
 				</nav>
-				{/* {authData ? (
-					<button onClick={handleLogout} className="logout scrollto">
+				{userData ? 
+					<button onClick={handleLogout} className={styles.logout}>
 						LOGOUT
 					</button>
-				) : (
-					<Link style={{ textDecoration: "none" }} to="/login">
-						<a className="login scrollto">LOGIN</a>
-					</Link>
-				)} */}
-
-                    <Link style={{ textDecoration: "none" }} href="/login">
+					
+				 : 
+					<Link href="/login">
 						<a className={styles.login}>LOGIN</a>
 					</Link>
+				}
 			</div>
 		</header>
 	);

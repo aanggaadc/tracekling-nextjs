@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import NotFoundImage from "../public/not-found.png";
+import NotFoundImage from "../public/assets/not-found.png";
 import Layout from "../components/layout/Layout";
 import styles from "../styles/NotFound.module.css";
 import Head from "next/head";

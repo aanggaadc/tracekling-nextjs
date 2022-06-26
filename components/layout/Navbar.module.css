@@ -39,9 +39,8 @@
 }
 
 .login {
-	color: #fff;
 	background: #188cbd;
-	padding: 7px 22px;
+	padding: 9px 22px;
 	margin: 0 0 0 15px;
 	border-radius: 50px;
 	border: 2px solid #188cbd;
@@ -50,8 +49,13 @@
 	line-height: 1;
 	font-size: 13px;
 	white-space: nowrap;
-	text-decoration: none;
 }
+
+.login a {
+ text-decoration: none;
+ color: #fff;
+}
+
 .login:hover {
 	background: none;
 	color: #fff;
@@ -63,7 +67,7 @@
 .logout {
 	color: #fff;
 	background: #bd1818;
-	padding: 7px 22px;
+	padding: 8px 22px;
 	margin: 0 0 0 15px;
 	border-radius: 50px;
 	border: 2px solid #bd1818;
@@ -303,13 +307,15 @@
 .navbar_mobile .dropdown ul li:hover > a {
 	color: #188cbd;
 }
-.navbar_mobile .dropdown > .dropdown-active {
+.navbar_mobile .dropdown > .dropdown_active {
 	display: block;
 }
 
-.nav_avatar {
-	width: 40px;
+.avatar{
 	height: 40px;
+	width: 40px;
+	border-radius: 50px;
+	overflow: hidden;
 }
 
 @media (max-width: 990px) {

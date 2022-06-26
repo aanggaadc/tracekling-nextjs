@@ -8,12 +8,12 @@ import { VscListFlat } from "react-icons/vsc";
 import { BiChevronDown, BiX } from "react-icons/bi";
 import {API_URL} from '../../config/url'
 import {toast} from 'react-toastify'
-import {UserContext} from '../../utils/userContext'
+import {UserContext} from '../../store/userContext'
 
 function Navbar() {
 	const [activeMobile, setActiveMobile] = useState(false);
 	const [activeDropdown, setActiveDropdown] = useState(false);
-	const userData = useContext(UserContext)
+	const {isUser, setIsUser} = useContext(UserContext)
 	const router = useRouter();
 	// const dispatch = useDispatch();
 	// const { clearUser } = bindActionCreators(actionCreators, dispatch);
@@ -47,8 +47,11 @@ function Navbar() {
 
 	const handleLogout = () => {
 		// clearUser();
-		toast.success("You are logged out, see ya!!");
+		setTimeout(() => {
+			toast.success("You are logged out, see ya!!");
+		}, 100)		
 		localStorage.removeItem("authKey");
+		setIsUser(null)
 		router.push("/login");
 	};
 
@@ -78,20 +81,19 @@ function Navbar() {
 								TRIPS
 							</Link>
 						</li>
-						{userData ? 
-							<>
-								<li className='nav-link'>
+								{isUser && <li className='nav-link'>
 									<Link className="nav-link" href="/trip/create">
 										CREATE TRIP
 									</Link>
-								</li>
-								<li className={styles.dropdown}>
+								</li>}
+
+								{isUser && <li className={styles.dropdown}>
 									<div className={`d-flex ${styles.account}`}>
 										<div className={styles.avatar}>
-											<Image src={`${API_URL}${userData.avatar}`} width="40px" height="40px"/>						
+											<Image src={`${API_URL}${isUser.avatar}`} width="40px" height="40px"/>						
 										</div>
 										<a href="#">
-											{userData.username.toUpperCase()}
+											{isUser.username.toUpperCase()}
 											<i>
 												<BiChevronDown size={25} onClick={toggleDropdownMenu} />
 											</i>
@@ -106,28 +108,14 @@ function Navbar() {
 											<Link href="/user/mytrip">MY TRIP</Link>
 										</li>
 									</ul>
-								</li>
-							</>
-						 : 
-							<li>
-								<Link className="nav-link" href="/signup">
-									REGISTER
-								</Link>
-							</li>
-						}
+								</li>}						
+							{!isUser && <li> <Link className="nav-link" href="/signup"> REGISTER </Link> </li>}						
 					</ul>
 					{mobileNav()}
 				</nav>
-				{userData ? 
-					<button onClick={handleLogout} className={styles.logout}>
-						LOGOUT
-					</button>
-					
-				 : 
-					<Link href="/login">
-						<a className={styles.login}>LOGIN</a>
-					</Link>
-				}
+					{isUser && <button onClick={handleLogout} className={styles.logout}> LOGOUT </button>}			
+					{!isUser && <div className={styles.login}><Link className={styles.login} href="/login"> LOGIN</Link> </div>}
+				
 			</div>
 		</header>
 	);

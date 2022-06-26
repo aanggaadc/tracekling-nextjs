@@ -1,6 +1,7 @@
 import Head from 'next/head'
 import Image from 'next/image'
 import Link from 'next/link'
+import { useContext } from 'react'
 import {useRouter} from 'next/router'
 import styles from '../styles/Login.module.css'
 import { BsFillArrowLeftCircleFill } from "react-icons/bs";
@@ -10,6 +11,7 @@ import { Formik } from "formik";
 import Axios from "axios";
 import { API_URL } from "../config/url";
 import { toast } from "react-toastify";
+import { UserContext } from '../store/userContext'
 // import { useDispatch } from "react-redux";
 // import { bindActionCreators } from "redux";
 // import { actionCreators } from "../../store/index";
@@ -21,6 +23,7 @@ const renderTooltip = (props) => (
 );
 
 function Login() {
+    const {setIsUser} = useContext(UserContext)
     const router = useRouter()
 	// const dispatch = useDispatch();
 	// const { fillUser } = bindActionCreators(actionCreators, dispatch);
@@ -64,8 +67,11 @@ function Login() {
                             .then((response) => {
                                 // fillUser(response.data.data);
                                 localStorage.setItem("authKey", JSON.stringify(response.data.data));
-                                router.push('/')
-                                toast.success("Welcome to Our Site!");
+                                setIsUser(response.data.data)
+                                setTimeout(() => {
+                                    toast.success("Welcome to Our Site!");
+                                }, 100)
+                                router.push('/')                              
                             })
                             .catch((error) => {
                                 if (error.response) {

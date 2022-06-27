@@ -1,0 +1,98 @@
+.member_info {
+    float: right;
+  }
+  
+  .detail_trip_img {
+    object-fit: cover;
+    object-position: center;
+    overflow: hidden;
+    aspect-ratio: 4/3;
+    width: 100%;
+  }
+
+  .detailtrip_container {
+    margin-top: 70px;
+    font-family: "Open Sans", sans-serif;
+    overflow: hidden;
+  }
+  
+  .posted {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+  }
+  
+  .posted .image_profile {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    margin-right: 10px;
+  }
+  
+  .other_trip {
+    margin-bottom: 60px;
+    position: relative;
+    padding-bottom: 20px;
+  }
+  
+  .other_trip h2 {
+    font-size: 34px;
+    text-transform: uppercase;
+    text-align: center;
+    font-weight: 700;
+    margin-bottom: 10px;
+    font-family: "Raleway", sans-serif;
+    padding: 0;
+    color: #0e1b4d;
+  }
+  
+  .other_trip p {
+    text-align: center;
+    padding: 0;
+    margin: 0;
+    font-size: 18px;
+    font-weight: 500;
+    color: #9195a2;
+  }
+  
+  .other_trip::before {
+    content: "";
+    position: absolute;
+    display: block;
+    width: 60px;
+    height: 5px;
+    background: #188cbd;
+    bottom: 0;
+    left: calc(50% - 25px);
+  }
+  
+  .contact_owner {
+    text-decoration: none;
+    color: black
+  }
+  
+  .contact_owner:hover{
+    color: #188cbd
+  }
+
+  .img_profile{
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    object-fit: cover;
+    overflow: hidden;
+  }
+
+  .btn_join {
+    width: 90px;
+    background-color: #188cbd !important;
+    border-color: #188cbd !important;
+    transition: 0.5s;
+  }
+
+  .btn_join:hover {
+    background-color: #0e1b4d !important;
+    border-color: #0e1b4d!important;
+  }
+  

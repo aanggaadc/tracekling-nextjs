@@ -9,7 +9,7 @@ import { toast } from "react-toastify";
 function FormBiodata({ setFile, userProfile, getUserProfile, updateReduxState }) {
 	return (
 		<div className={styles.edit_biodata}>
-			<h1>Edit Biodata</h1>
+			<h1>EDIT BIODATA</h1>
 			<Formik
 				initialValues={{
 					age: userProfile.age,

@@ -4,11 +4,11 @@ import {ToastContainer} from 'react-toastify'
 import {useEffect, useState } from 'react'
 import {UserContext} from '../store/userContext'
 import Axios from 'axios'
+import {useRouter} from 'next/router'
 
 function MyApp({ Component, pageProps }) {
   const [isUser, setIsUser] = useState(null)
-
-  console.log(isUser)
+  const router = useRouter()
 
   Axios.interceptors.request.use(
     function (config) {
@@ -29,8 +29,8 @@ function MyApp({ Component, pageProps }) {
     function (error) {
       if (error.response) {
         if (error.response.status == 401) {
-          navigate("/login");
-          localStorage.removeItem("auth");
+          router.push("/login");
+          localStorage.removeItem("authKey");
           toast.error(error.response.data.message);
         }
       }

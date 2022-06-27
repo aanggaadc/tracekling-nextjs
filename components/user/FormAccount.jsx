@@ -8,7 +8,7 @@ import { toast } from "react-toastify";
 function FormAccount({ userProfile, getUserProfile, updateReduxState }) {
 	return (
 		<div className={styles.edit_account}>
-			<h1>Edit Account</h1>
+			<h1>EDIT ACCOUNT</h1>
 			<Formik
 				initialValues={{
 					username: userProfile.username,

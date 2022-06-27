@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import Image from 'next/image'
 import styles from '../../styles/User.module.css'
 import Layout from '../../components/layout/Layout'
@@ -6,12 +6,14 @@ import FormAccount from "../../components/user/FormAccount";
 import { BsGenderMale, BsGenderFemale } from "react-icons/bs";
 import Axios from "axios";
 import { API_URL } from "../../config/url";
+import { UserContext } from '../../store/userContext'
 // import { useDispatch } from "react-redux";
 // import { bindActionCreators } from "redux";
 // import { actionCreators } from "../../store/index";
 
 function Account() {
     const [file, setFile] = useState("");
+    const {setIsUser} = useContext(UserContext)
 	// const location = useLocation();
 	// const dispatch = useDispatch();	
 	// const { fillUser } = bindActionCreators(actionCreators, dispatch);
@@ -51,7 +53,8 @@ function Account() {
 	const updateReduxState = () => {
 		Axios.get(`${API_URL}/user/single`)
 			.then((response) => {
-				fillUser(response.data.redux);
+				// fillUser(response.data.redux);
+                setIsUser(response.data.redux)
 				localStorage.setItem("authKey", JSON.stringify(response.data.redux));
 			})
 			.catch((error) => {

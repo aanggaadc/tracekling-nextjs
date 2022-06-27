@@ -138,7 +138,7 @@
 	}
 
 	#background_profile::before {
-		bottom: -41% !important;
+		bottom: -125% !important;
 	}
 
 	.container_profile {
@@ -155,8 +155,16 @@
 		gap: 2rem;
 	}
 
-	.account_profile .left_profile {
+	.account_profile .left-profile {
 		padding: 0.8rem;
+	}
+
+	.account_profile .left_profile .photo img {
+		width: 80px;
+		height: 80px;
+		border-radius: 50%;
+		border: 3px solid #0e1b4d;
+		object-fit: cover;
 	}
 
 	.info_profile {
@@ -195,13 +203,13 @@
 
 @media (max-width: 991.98px) {
 	#background_profile::before {
-		bottom: 40px;
+		bottom: -50%;
 	}
 }
 
 @media (min-width: 1023.98px) {
 	#background_profile::before {
-		bottom: 35px;
+		bottom: -20%;
 	}
 }
 

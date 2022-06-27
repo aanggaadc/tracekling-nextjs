@@ -1,3 +1,4 @@
+/* USER ACCOUNT PAGE */
 #background_profile {
 	background-image: url("../public/assets/user.jpg");
 	background-size: cover;
@@ -211,3 +212,149 @@
 		justify-content: center;
 	}
 }
+
+
+/* MY TRIP PAGE */
+.container_mytrip {
+	padding: 5rem 0;
+	font-family: "Raleway", sans-serif;
+}
+
+.mytrip_title {
+	padding-bottom: 20px;
+	position: relative;
+}
+
+.mytrip_title h1 {
+	font-weight: bold;
+	color: #0e1b4d;
+}
+
+.mytrip_title p {
+	text-align: center;
+	padding: 0;
+	margin: 0;
+	font-size: 18px;
+	font-weight: 500;
+	color: #9195a2;
+}
+
+.mytrip_title::before {
+	content: "";
+	position: absolute;
+	display: block;
+	width: 60px;
+	height: 5px;
+	background: #188cbd;
+	bottom: 0;
+	left: calc(50% - 25px);
+}
+
+.mytrip_filters {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: center;
+	gap: 25px;
+	margin-top: 2rem;
+}
+
+.mytrip_filters .form_row {
+	display: flex;
+	width: 80%;
+	gap: 20px;
+}
+
+.mytrip_filters .btn_clearField {
+	justify-content: flex-end;
+}
+
+.mytrip_filters .btn_clearField button {
+	border: 1px solid #ef9b23;
+	border-radius: 5px;
+	background-color: #ef9b23;
+	padding: 0.5em;
+	color: white;
+	font-weight: bold;
+	transition: 0.5s ease-in;
+}
+
+.mytrip_filters .btn_clearField button:first-child {
+	border: 1px solid #188cbd;
+	border-radius: 5px;
+	background-color: #188cbd;
+	padding: 0.5em;
+	color: white;
+	font-weight: bold;
+	transition: 0.5s ease-in;
+}
+
+.mytrip_filters .btn_clearField button:first-child:hover {
+	background-color: white;
+	color: #188cbd;
+}
+
+.mytrip_filters .btn_clearField button:hover {
+	background-color: white;
+	color: #ef9b23;
+}
+
+.mytrip_search {
+	width: 100%;
+}
+
+.mytrip_pagination {
+	flex-wrap: wrap;
+	justify-content: center;
+	margin-top: 2rem;
+}
+
+.mytrip_pagination .page_item.active .page_link {
+	background-color: #188cbd;
+	border-color: #188cbd;
+	color: white;
+}
+
+.mytrip_pagination .page_item .page_link {
+	color: #188cbd;
+}
+
+@media (max-width: 575.98px) {
+	.mytrip_filters .form_row {
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+	}
+
+	.mytrip_search {
+		width: 70%;
+	}
+}
+
+.trip_button{
+	background-color: #188CBD;
+	color: white;
+	border-radius: 5px ;
+	border-style: none;
+	transition: 0.5s;
+}
+
+.trip_button:hover{
+	background-color: #0e1b4d;
+}
+
+.card_trip {
+    overflow: hidden;    
+}
+
+.card_imgTrip {
+	object-fit: cover;
+	object-position: center;
+	height: 25vh;
+    transition: all ease-in-out 0.4s;
+}
+
+.card_imgTrip:hover{
+    transform: scale(1.1);
+}
+

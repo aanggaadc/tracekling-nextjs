@@ -41,9 +41,7 @@ function TripRecomendation({ data }) {
                     <Card.Img variant="top" src={`${API_URL}/${item.trip_image}`} className={styles.card_imgTrip} />
                   </div>
                   <Card.Body>
-                    <Card.Title>
                       <h3 style={{ fontWeight: "Bold" }}>{item.destination}</h3>
-                    </Card.Title>
                     <Link href={`/recomendation/detail/${item.recomendation_id}`}>
                       <Button className={`mt-2 ${styles.trip_button}`}>Detail</Button>
                     </Link>

@@ -1,0 +1,32 @@
+.banner_trip {
+    width: 100%;
+    top: 20px;
+    position: relative;
+    display: block;
+    justify-content: center;
+    }
+
+.banner_trip h3, .banner_trip p {
+    position: relative;
+    z-index: 1;
+    }
+
+.image_container {
+    overflow: hidden;
+    height: 80vh;
+    object-fit: cover;
+    object-position: center;
+    position: relative;
+}
+
+.image_container::before {
+    content: "";
+    background: rgba(6, 12, 34, 0.7);
+    position: absolute;
+    bottom: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 80vh;
+    z-index: 1;
+}

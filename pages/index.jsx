@@ -48,7 +48,7 @@ const Home = () => {
 				  }, 1800);
 			})
 			.catch((error) => {
-				console.log(error.data.message);
+				console.log(error);
 			});
 	};
 
@@ -62,7 +62,7 @@ const Home = () => {
 				}, 1800)
 			})
 			.catch((error) => {
-				console.log(error.data.message);
+				console.log(error);
 			});
 	};
 

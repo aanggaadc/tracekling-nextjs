@@ -20,13 +20,9 @@ function TripUser({ data }) {
 							<Card.Body>
 								<Card.Title>
 									<h3 style={{ fontWeight: "Bold" }}>{item.trip_name}</h3>
-								</Card.Title>
-								<Card.Text>
+								</Card.Title>								
 									<h4>{item.destination}</h4>
-									<p>
-										{item.start_date} ~ {item.end_date}
-									</p>
-								</Card.Text>
+									<p>{item.start_date} ~ {item.end_date}</p>
 								<ProgressBar
 									variant="info"
 									now={(item.count_member * 100) / item.max_member}

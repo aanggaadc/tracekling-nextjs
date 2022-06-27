@@ -1,0 +1,213 @@
+#background_profile {
+	background-image: url("../public/assets/user.jpg");
+	background-size: cover;
+	background-repeat: no-repeat;
+	height: 100%;
+	font-family: "Raleway", sans-serif;
+}
+
+#background_profile::before {
+	content: "";
+	background: rgba(6, 12, 34, 0.7);
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+}
+
+.container_profile {
+	padding: 5rem 3rem;
+	min-height: calc(100vh - 40px);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.account_profile {
+	display: flex;
+	gap: 5rem;
+	filter: brightness(95%);
+}
+
+.account_profile .left_profile {
+	padding: 25px;
+	border-radius: 15px;
+	flex: 1;
+	color: white;
+}
+
+.account_profile .left_profile .photo {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.account_profile .left_profile .photo .avatar {
+	width: 150px;
+	height: 150px;
+	border-radius: 50%;
+	border: 3px solid #0e1b4d;
+	object-fit: cover;
+	overflow: hidden;
+}
+
+.info_profile {
+	display: flex;
+	flex-direction: column;
+	gap: 5px;
+}
+
+.info_profile .info_detail {
+	display: flex;
+	justify-content: center;
+	gap: 5px;
+}
+
+.info_profile .info_detail_left {
+	color: #25abe3;
+}
+
+.info_profile .info_detail_right {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 7px;
+}
+
+.info_profile .account_btnDelete {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-top: 1rem;
+}
+
+.info_profile .account_btnDelete button {
+	border: 1px solid red;
+	border-radius: 5px;
+	background-color: red;
+	color: white;
+	max-width: 150px;
+	width: 100%;
+	padding: 0.5rem 0;
+	position: relative;
+	z-index: 1;
+}
+
+.info_profile .account_btnDelete button::before {
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	border-radius: 5px;
+	background-color: white;
+	z-index: -1;
+	transform: scaleX(0);
+	transform-origin: right;
+	transition: transform 0.5s ease-in;
+}
+
+.info_profile .account_btnDelete button:hover {
+	color: red;
+}
+
+.info_profile .account_btnDelete button:hover::before {
+	transform: scaleX(1);
+	transform-origin: left;
+}
+
+.account_profile .right_profile {
+	flex: 2;
+	border-radius: 15px;
+	padding: 25px;
+	display: flex;
+	justify-content: center;
+	/* box-shadow: 0px 1px 15px 2px rgb(24 140 189 / 50%); */
+}
+
+#footer {
+	filter: brightness(95%);
+}
+
+@media (max-width: 575.98px) {
+	#background_profile {
+		background-position: 30% !important;
+	}
+
+	#background_profile::before {
+		bottom: -41% !important;
+	}
+
+	.container_profile {
+		padding: 7rem 0;
+	}
+
+	.title_profile {
+		text-align: center;
+	}
+
+	.account_profile {
+		display: flex;
+		flex-direction: column;
+		gap: 2rem;
+	}
+
+	.account_profile .left_profile {
+		padding: 0.8rem;
+	}
+
+	.info_profile {
+		display: flex;
+		flex-direction: column;
+		gap: 5px;
+	}
+
+	.info_profile .info_detail {
+		display: flex;
+		justify-content: center;
+		gap: 5px;
+	}
+
+	.info_profile .info_detail_left {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+
+	.info_profile .info_detail_right {
+		max-width: 14em;
+		word-wrap: break-word;
+	}
+
+	.info_profile .info_detail .gender {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+
+	#footer {
+		filter: brightness(95%);
+	}
+}
+
+@media (max-width: 991.98px) {
+	#background_profile::before {
+		bottom: 40px;
+	}
+}
+
+@media (min-width: 1023.98px) {
+	#background_profile::before {
+		bottom: 35px;
+	}
+}
+
+@media (min-width: 1400px) {
+	.container_profile {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+	}
+}

@@ -29,15 +29,17 @@ function Signup() {
 						<p> Already have an account? <Link href="/login" > Login  </Link> </p>				
 
 						<Link href="/">
-							<OverlayTrigger
-								placement="right"
-								delay={{ show: 250, hide: 400 }}
-								overlay={renderTooltip}
-							>
-								<Button variant="link">
-									<BsFillArrowLeftCircleFill />
-								</Button>
-							</OverlayTrigger>
+							<div>
+								<OverlayTrigger
+									placement="right"
+									delay={{ show: 250, hide: 400 }}
+									overlay={renderTooltip}
+								>
+									<Button variant="link">
+										<BsFillArrowLeftCircleFill />
+									</Button>
+								</OverlayTrigger>
+							</div>
 						</Link>
 					</div>
 				</div>

@@ -27,6 +27,12 @@
 	color: #0e1b4d;
 }
 
+@media (max-width: 320px) {
+  .recomendation h2 {
+    font-size: 30px;
+  }
+}
+
 .recomendation p {
 	text-align: center;
 	padding: 0;
@@ -79,11 +85,13 @@
     overflow: hidden;
     position: relative;
   }
+
   @media (min-width: 1024px) {
     #banner {
       background-attachment: fixed;
     }
   }
+
   #banner:before {
     content: "";
     background: rgba(6, 12, 34, 0.7);

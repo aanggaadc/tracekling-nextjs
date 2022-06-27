@@ -167,7 +167,7 @@ function MyTrip() {
 								</Form.Group>
 							</div>
 							<div className={`${styles.form_row} ${styles.btn_clearField}`}>
-								<button onClick={handleSubmit}>Search</button>
+								<button type='submit' onClick={handleSubmit}>Search</button>
 								<button
 									onClick={(e) => {
 										setFilter({
@@ -204,12 +204,10 @@ function MyTrip() {
 											<Card.Title>
 												<h3 style={{ fontWeight: "Bold" }}>{item.trip.trip_name}</h3>
 											</Card.Title>
-											<Card.Text>
 												<h4>{item.trip.destination}</h4>
 												<p>
 													{item.trip.start_date} to {item.trip.end_date}
 												</p>
-											</Card.Text>
 											<ProgressBar
 												variant="info"
 												now={(item.trip.count_member * 100) / item.trip.max_member}

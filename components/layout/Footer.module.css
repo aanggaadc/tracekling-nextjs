@@ -3,6 +3,7 @@
     padding: 0 0 25px 0;
     color: #eee;
     font-size: 14px;
+    filter: brightness(95%);
   }
   #footer .footer_top {
     background: #040919;

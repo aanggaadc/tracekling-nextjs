@@ -9,7 +9,7 @@ import { Container, Row, Col, Card, ProgressBar, Button, Modal, Spinner } from "
 import Axios from "axios";
 import { API_URL } from "../../../config/url";
 import { toast } from "react-toastify";
-import OtherTripList from "../../../components/trip/OtherTrip";
+import OtherTripList from "../../../components/OtherTrip";
 // import { useSelector } from "react-redux";
 import NoData from "../../../public/no-data.gif";
 import { RiArrowRightCircleFill } from "react-icons/ri";

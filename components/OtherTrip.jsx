@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import styles from './OtherTrip.module.css'
 import { Col, Card, Button, Row, ProgressBar } from "react-bootstrap";
-import { API_URL } from "../../config/url";
+import { API_URL } from "../config/url";
 
 function OtherTrip({ data }) {
   return (
@@ -17,12 +17,10 @@ function OtherTrip({ data }) {
                 <Card.Title>
                   <h3 style={{ fontWeight: "Bold" }}>{item.trip_name}</h3>
                 </Card.Title>
-                <Card.Text>
                   <h4>{item.destination}</h4>
                   <p>
                     {item.start_date} to {item.end_date}
                   </p>
-                </Card.Text>
                 <ProgressBar variant="info" now={Math.ceil((item.count_member * 100) / item.max_member)} label={`${item.count_member}/${item.max_member}`} />
                 <Link href={`/trip/detail/${item.trip_id}`}>
                   <Button className={`mt-2 ${styles.trip_button}`}>Detail</Button>

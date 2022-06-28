@@ -98,10 +98,10 @@ const Home = () => {
 					<>
 						<TripUser data={dataTrip} />
 						<Link href="trips">
-              <div style={{ textDecoration: "none", color: "#188CBD", fontSize: "20px", cursor: "pointer" }} className="float-end mt-3">
-              See all
-							<RiArrowRightCircleFill size={30} />
-              </div>						
+							<div style={{ textDecoration: "none", color: "#188CBD", fontSize: "20px", cursor: "pointer" }} className="float-end mt-3">
+								See all
+								<RiArrowRightCircleFill size={30} />
+             				 </div>						
 						</Link>
 					</>
 				);

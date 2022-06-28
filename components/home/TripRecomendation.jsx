@@ -42,7 +42,7 @@ function TripRecomendation({ data }) {
                   </div>
                   <Card.Body>
                       <h3 style={{ fontWeight: "Bold" }}>{item.destination}</h3>
-                    <Link href={`/recomendation/detail/${item.recomendation_id}`}>
+                    <Link href={`/recommendation/detail/${item.recomendation_id}`}>
                       <Button className={`mt-2 ${styles.trip_button}`}>Detail</Button>
                     </Link>
                   </Card.Body>

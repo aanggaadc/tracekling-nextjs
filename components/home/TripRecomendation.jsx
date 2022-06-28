@@ -34,8 +34,8 @@ function TripRecomendation({ data }) {
         <Row xs={1} md={2} lg={4} className="g-2">
 
           {data.map((item, index) => (
-            <SwiperSlide>
-              <Col key={index}>
+            <SwiperSlide key={index}>
+              <Col>
                 <Card className="text-center shadow h-100">
                   <div className={styles.card_trip}>
                     <Card.Img variant="top" src={`${API_URL}/${item.trip_image}`} className={styles.card_imgTrip} />

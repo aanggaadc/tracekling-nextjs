@@ -1,5 +1,5 @@
-import Link from 'next/link'
-import styles from './FormBiodata.module.css'
+import Link from "next/link";
+import styles from "./FormBiodata.module.css";
 import { Formik } from "formik";
 import { FaUpload } from "react-icons/fa";
 import Axios from "axios";
@@ -112,7 +112,7 @@ function FormBiodata({ setFile, userProfile, getUserProfile, updateReduxState })
 							</div>
 						</div>
 						<div className={styles.form_row}>
-							<div className="form-sex">
+							<div className={styles.form_sex}>
 								<label htmlFor="specificSex" className="visually-hidden">
 									Sex
 								</label>
@@ -124,7 +124,7 @@ function FormBiodata({ setFile, userProfile, getUserProfile, updateReduxState })
 							</div>
 						</div>
 						<div className={styles.form_row}>
-							<div className="form-interest">
+							<div className={styles.form_interest}>
 								<label htmlFor="specificInterest" className="visually-hidden">
 									Interest
 								</label>
@@ -170,10 +170,7 @@ function FormBiodata({ setFile, userProfile, getUserProfile, updateReduxState })
 				)}
 			</Formik>
 			<div className={styles.change_formToAccount}>
-				Change to{" "}
-				<Link href={`/user/account`} >
-					Edit Account
-				</Link>
+				Change to <Link href={`/user/account`}>Edit Account</Link>
 			</div>
 		</div>
 	);

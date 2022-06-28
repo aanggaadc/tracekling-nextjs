@@ -14,7 +14,13 @@ function NotFound() {
 			<Layout>
 				<div className={`container-fluid ${styles.notFoundContainer}`}>
 					<div className={styles.notFoundImgContainer}>
-						<Image src={NotFoundImage} alt="notfound" layout="responsive" objectFit="contain" />
+						<Image
+							src={NotFoundImage}
+							alt="notfound"
+							layout="responsive"
+							objectFit="contain"
+							priority
+						/>
 					</div>
 					<div className={styles.notFound}>
 						<div className={styles.notFound404}>

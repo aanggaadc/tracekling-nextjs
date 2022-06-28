@@ -173,7 +173,9 @@ function DetailRecommendationTrip() {
 								Axios.post(`${API_URL}/trip/add_recommendation`, values)
 									.then((response) => {
 										console.log(response);
-										toast.success("Trip Successfully created!!");
+										setTimeout(() => {
+											toast.success("Trip Successfully created!!");
+										}, 500)
 										router.push("/");
 									})
 									.catch((error) => {

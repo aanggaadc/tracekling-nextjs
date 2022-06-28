@@ -114,8 +114,6 @@ function DetailRecommendationTrip() {
 									src={trip.trip_image}
 									className={`img-fluid rounded shadow-4 ${styles.detail_trip_img}`}
 									alt="..."
-									Layout="responsive"
-									objectFit="contain"
 								/>
 							</Card>
 						</Col>

@@ -73,7 +73,7 @@ function CreateTrip() {
 								{({ handleSubmit, handleChange, setFieldValue }) => (
 									<Form id={styles.form_trip}>
 										<div className="form-group">
-											<label for="tripname" className={styles.form_trip_label}>
+											<label htmlFor="tripname" className={styles.form_trip_label}>
 												Trip Name
 											</label>
 											<input
@@ -86,7 +86,7 @@ function CreateTrip() {
 											/>
 										</div>
 										<div className="form-group mt-3">
-											<label for="destination" className={styles.form_trip_label}>
+											<label htmlFor="destination" className={styles.form_trip_label}>
 												Destination
 											</label>
 											<input
@@ -99,7 +99,7 @@ function CreateTrip() {
 											/>
 										</div>
 										<div className="form-group mt-3">
-											<label for="startdate" className={styles.form_trip_label}>
+											<label htmlFor="startdate" className={styles.form_trip_label}>
 												Start Date
 											</label>
 											<input
@@ -114,7 +114,7 @@ function CreateTrip() {
 											/>
 										</div>
 										<div className="form-group mt-3">
-											<label for="enddate" className={styles.form_trip_label}>
+											<label htmlFor="enddate" className={styles.form_trip_label}>
 												End Date
 											</label>
 											<input
@@ -129,7 +129,7 @@ function CreateTrip() {
 											/>
 										</div>
 										<div className="form-group mt-3">
-											<label for="maxmember" className={styles.form_trip_label}>
+											<label htmlFor="maxmember" className={styles.form_trip_label}>
 												Max Member
 											</label>
 											<input
@@ -155,7 +155,7 @@ function CreateTrip() {
 												}}
 												required
 											/>
-											<label for="file" className={styles.form_trip_label}>
+											<label htmlFor="file" className={styles.form_trip_label}>
 												{" "}
 												<FaUpload size={22} /> Upload Trip Image{" "}
 											</label>{" "}

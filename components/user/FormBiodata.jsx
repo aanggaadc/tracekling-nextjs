@@ -88,7 +88,7 @@ function FormBiodata({ setFile, userProfile, getUserProfile, updateReduxState })
 								</label>
 								<input
 									type="number"
-									class="form-control"
+									className="form-control"
 									id="age"
 									placeholder=""
 									value={values.age}
@@ -102,7 +102,7 @@ function FormBiodata({ setFile, userProfile, getUserProfile, updateReduxState })
 								</label>
 								<input
 									type="text"
-									class="form-control"
+									className="form-control"
 									id="location"
 									placeholder=""
 									value={values.location}

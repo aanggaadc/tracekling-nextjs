@@ -254,7 +254,7 @@ function Trip() {
 								<div className={styles.searchform}>
 									<div className="form-row col-12 col-md-9">
 										<div className={`${styles.form_search} mt-3`}>
-											<label for="trip_name">Search Trip by Trip Name</label>
+											<label htmlFor="trip_name">Search Trip by Trip Name</label>
 											<input
 												type="text"
 												className="form-control"
@@ -268,7 +268,7 @@ function Trip() {
 											/>
 										</div>
 										<div className={`${styles.form_search} mt-3`}>
-											<label for="destination">Search Trip by Destination</label>
+											<label htmlFor="destination">Search Trip by Destination</label>
 											<input
 												type="text"
 												className="form-control"
@@ -282,7 +282,7 @@ function Trip() {
 											/>
 										</div>
 										<div className={`${styles.form_search} mt-3`}>
-											<label for="start_date">Search Trip by Start Date</label>
+											<label htmlFor="start_date">Search Trip by Start Date</label>
 											<input
 												type="date"
 												className="form-control"
@@ -298,7 +298,7 @@ function Trip() {
 									</div>
 									<div className="form-row col-12 col-md-9">
 										<div className={`${styles.form_search} mt-3`}>
-											<label for="end_date">Search Trip by End Date</label>
+											<label htmlFor="end_date">Search Trip by End Date</label>
 											<input
 												type="date"
 												className="form-control"
@@ -312,7 +312,7 @@ function Trip() {
 											/>
 										</div>
 										<div className={`${styles.form_search} mt-3`}>
-											<label for="count_member">Search Trip by Current Member</label>
+											<label htmlFor="count_member">Search Trip by Current Member</label>
 											<input
 												type="number"
 												className="form-control"
@@ -326,7 +326,7 @@ function Trip() {
 											/>
 										</div>
 										<div className={`${styles.form_search} mt-3`}>
-											<label for="max_member">Search Trip by Max Member</label>
+											<label htmlFor="max_member">Search Trip by Max Member</label>
 											<input
 												type="number"
 												className="form-control"

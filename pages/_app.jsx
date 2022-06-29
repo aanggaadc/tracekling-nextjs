@@ -43,6 +43,11 @@ function MyApp({ Component, pageProps }) {
     if(localStorage.getItem('authKey')){
 			setIsUser(JSON.parse(localStorage.getItem('authKey')))
 		}
+
+    setTimeout(() => {
+        localStorage.removeItem("adminKey");
+    }, 1000)
+    
   }, [])
 
   return (

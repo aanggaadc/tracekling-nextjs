@@ -24,7 +24,7 @@ const renderTooltip = (props) => (
 );
 
 function Login() {
-    const {setIsUser} = useContext(UserContext)
+    const {setIsUser, setCookie} = useContext(UserContext)
     const router = useRouter()
 	// const dispatch = useDispatch();
 	// const { fillUser } = bindActionCreators(actionCreators, dispatch);
@@ -68,6 +68,7 @@ function Login() {
                             Axios.post(`${API_URL}/login`, values)
                                 .then((response) => {
                                     // fillUser(response.data.data);
+                                    setCookie("authKey", response.data.data, { path: '/' })
                                     localStorage.setItem("authKey", JSON.stringify(response.data.data));
                                     setIsUser(response.data.data)
                                     setTimeout(() => {

@@ -5,15 +5,18 @@ import {useEffect, useState } from 'react'
 import {UserContext} from '../store/userContext'
 import Axios from 'axios'
 import {useRouter} from 'next/router'
+import {CookiesProvider, useCookies} from 'react-cookie'
 
 function MyApp({ Component, pageProps }) {
   const [isUser, setIsUser] = useState(null)
   const router = useRouter()
+  const [cookies, setCookie, removeCookie] = useCookies(['authKey'])
+  const authData = cookies.authKey
 
   Axios.interceptors.request.use(
     function (config) {
-      if (isUser) {
-        config.headers.Authorization = "Bearer " + isUser.token;
+      if(authData){
+        config.headers.Authorization = "Bearer " + authData.token;
       }
       return config;
     },
@@ -40,21 +43,23 @@ function MyApp({ Component, pageProps }) {
 
 
   useEffect(() => {
-    if(localStorage.getItem('authKey')){
-			setIsUser(JSON.parse(localStorage.getItem('authKey')))
+    if(cookies.authKey){
+			setIsUser(cookies.authKey)
 		}
 
     setTimeout(() => {
         localStorage.removeItem("adminKey");
     }, 1000)
-    
+
   }, [])
 
   return (
     <>
-      <UserContext.Provider value={{isUser, setIsUser}}>
-          <Component {...pageProps} />
-      </UserContext.Provider>
+      <CookiesProvider>
+          <UserContext.Provider value={{isUser, setIsUser, cookies, setCookie, removeCookie}}>
+              <Component {...pageProps} />
+          </UserContext.Provider>
+      </CookiesProvider>
       <ToastContainer />
     </>
   )

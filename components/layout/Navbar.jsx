@@ -13,7 +13,7 @@ import {UserContext} from '../../store/userContext'
 function Navbar() {
 	const [activeMobile, setActiveMobile] = useState(false);
 	const [activeDropdown, setActiveDropdown] = useState(false);
-	const {isUser, setIsUser} = useContext(UserContext)
+	const {isUser, setIsUser, removeCookie} = useContext(UserContext)
 	const router = useRouter();
 	// const dispatch = useDispatch();
 	// const { clearUser } = bindActionCreators(actionCreators, dispatch);
@@ -47,11 +47,12 @@ function Navbar() {
 
 	const handleLogout = () => {
 		// clearUser();
-		setTimeout(() => {
-			toast.success("You are logged out, see ya!!");
-		}, 100)		
+		removeCookie('authKey')
 		localStorage.removeItem("authKey");
 		setIsUser(null)
+		setTimeout(() => {
+			toast.success("You are logged out, see ya!!");
+		}, 100)	
 		router.push("/login");
 	};
 

@@ -14,6 +14,7 @@ import OtherTripList from "../../../components/OtherTrip";
 import NoData from "../../../public/no-data.gif";
 import { RiArrowRightCircleFill } from "react-icons/ri";
 import { IoIosPerson } from "react-icons/io";
+import PrivateRoutes from "../../../components/routes/PrivateRoutes";
 
 function DetailTrip() {
 	const router = useRouter();
@@ -230,104 +231,106 @@ function DetailTrip() {
 				<title>{trip.trip_name}</title>
 				<meta name="keywords" content="travel travelling" />
 			</Head>
-			<Layout>
-				<Container className={`${styles.detailtrip_container} py-5`}>
-					<Modal show={show} onHide={handleClose}>
-						<Modal.Header closeButton>
-							<Modal.Title>Delete {trip.trip_name} Trip</Modal.Title>
-						</Modal.Header>
-						<Modal.Body>
-							Are you sure want to <span style={{ fontWeight: "bold" }}>delete</span> this trip?
-						</Modal.Body>
-						<Modal.Footer>
-							<Button variant="secondary" onClick={handleClose}>
-								No
-							</Button>
-							<Button variant="danger" onClick={deleteTrip}>
-								Yes, I'm sure
-							</Button>
-						</Modal.Footer>
-					</Modal>
-					<Row>
-						<Col lg="5">
-							<Card style={{ width: "100%" }}>
-								<img
-									src={trip.trip_image}
-									alt="Trip Image"
-									className={`img-fluid rounded shadow-4 ${styles.detail_trip_img}`}
-								/>
-							</Card>
-						</Col>
-						<Col lg>
-							<h1>{trip.trip_name}</h1>
-							<h3>{trip.destination}</h3>
-							<p>
-								From {trip.start_date} to {trip.end_date}
-							</p>
-							<div>
-								Already Join
-								<ProgressBar className="w-75" style={{ height: "30px" }}>
-									<ProgressBar
-										variant="success"
-										now={Math.ceil(memberPercent)}
-										label={`${Math.ceil(memberPercent)}%`}
+			<PrivateRoutes>
+				<Layout>
+					<Container className={`${styles.detailtrip_container} py-5`}>
+						<Modal show={show} onHide={handleClose}>
+							<Modal.Header closeButton>
+								<Modal.Title>Delete {trip.trip_name} Trip</Modal.Title>
+							</Modal.Header>
+							<Modal.Body>
+								Are you sure want to <span style={{ fontWeight: "bold" }}>delete</span> this trip?
+							</Modal.Body>
+							<Modal.Footer>
+								<Button variant="secondary" onClick={handleClose}>
+									No
+								</Button>
+								<Button variant="danger" onClick={deleteTrip}>
+									Yes, I'm sure
+								</Button>
+							</Modal.Footer>
+						</Modal>
+						<Row>
+							<Col lg="5">
+								<Card style={{ width: "100%" }}>
+									<img
+										src={trip.trip_image}
+										alt="Trip Image"
+										className={`img-fluid rounded shadow-4 ${styles.detail_trip_img}`}
 									/>
-									<ProgressBar variant="info" now={Math.floor(sisa)} />
-								</ProgressBar>
-								<div className="w-75">
-									<div className={styles.member_info}>
-										<IoIosPerson />
-										{trip.count_member}/{trip.max_member}
+								</Card>
+							</Col>
+							<Col lg>
+								<h1>{trip.trip_name}</h1>
+								<h3>{trip.destination}</h3>
+								<p>
+									From {trip.start_date} to {trip.end_date}
+								</p>
+								<div>
+									Already Join
+									<ProgressBar className="w-75" style={{ height: "30px" }}>
+										<ProgressBar
+											variant="success"
+											now={Math.ceil(memberPercent)}
+											label={`${Math.ceil(memberPercent)}%`}
+										/>
+										<ProgressBar variant="info" now={Math.floor(sisa)} />
+									</ProgressBar>
+									<div className="w-75">
+										<div className={styles.member_info}>
+											<IoIosPerson />
+											{trip.count_member}/{trip.max_member}
+										</div>
 									</div>
 								</div>
-							</div>
-							<div>
-								<Row className="justify-content-start mx-0 my-4">{handleTripButton()}</Row>
-							</div>
-						</Col>
-					</Row>
-					<hr className="my-5" />
-					<Row className="mb-3">
-						<h3>Description</h3>
-						<br />
-						<p>{trip.description}</p>
-					</Row>
-					<Row className="mt-3">
-						<Col lg="4">
-							<h3>Posted By</h3>
-							<div className={styles.posted}>
-								<img
-									src={trip.avatar_url}
-									alt="owner avatar"
-									className={`img-fluid rounded-circle shadow-4 ${styles.image_profile}`}
-								/>
-								<div className="name-profile">
-									<p className="mb-0">
-										<b>{trip.username}</b>
-									</p>
-									<small className="mb-0">{trip.location}</small>
+								<div>
+									<Row className="justify-content-start mx-0 my-4">{handleTripButton()}</Row>
 								</div>
+							</Col>
+						</Row>
+						<hr className="my-5" />
+						<Row className="mb-3">
+							<h3>Description</h3>
+							<br />
+							<p>{trip.description}</p>
+						</Row>
+						<Row className="mt-3">
+							<Col lg="4">
+								<h3>Posted By</h3>
+								<div className={styles.posted}>
+									<img
+										src={trip.avatar_url}
+										alt="owner avatar"
+										className={`img-fluid rounded-circle shadow-4 ${styles.image_profile}`}
+									/>
+									<div className="name-profile">
+										<p className="mb-0">
+											<b>{trip.username}</b>
+										</p>
+										<small className="mb-0">{trip.location}</small>
+									</div>
+								</div>
+								<div className="mt-2">
+									<p>
+										Contact :
+										<a className="contact-owner" href={`https://wa.me/${trip.phone_number}`}>
+											{trip.phone_number}{" "}
+										</a>
+									</p>
+								</div>
+							</Col>
+						</Row>
+						<hr className="my-5" />
+						<Row>
+							<div className={styles.other_trip}>
+								<h2>OTHER TRIP</h2>
+								<p>Other exciting places to visit</p>
 							</div>
-							<div className="mt-2">
-								<p>
-									Contact :
-									<a className="contact-owner" href={`https://wa.me/${trip.phone_number}`}>
-										{trip.phone_number}{" "}
-									</a>
-								</p>
-							</div>
-						</Col>
-					</Row>
-					<hr className="my-5" />
-					<Row>
-						<div className={styles.other_trip}>
-							<h2>OTHER TRIP</h2>
-							<p>Other exciting places to visit</p>
-						</div>
-						<div className="text-center">{OtherTrip()}</div>
-					</Row>
-				</Container>
-			</Layout>
+							<div className="text-center">{OtherTrip()}</div>
+						</Row>
+					</Container>
+				</Layout>
+			</PrivateRoutes>
 		</>
 	);
 }

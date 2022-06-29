@@ -1,0 +1,145 @@
+.editform_background {
+	background-image: url("../public/assets/EditTrip.jpg");
+	height: 100%;
+	width: 100%;
+	position: relative;
+	background-size: cover;
+	background-position: center;
+	background-attachment: fixed;
+	min-height: 925px;
+}
+
+.editform_background::before {
+	content: "";
+	background: rgba(6, 12, 34, 0.8);
+	position: absolute;
+	bottom: 0;
+	top: 0;
+	left: 0;
+	right: 0;
+}
+
+.tripform_container {
+	padding: 5rem 0;
+}
+
+.tripform_title {
+	padding-bottom: 20px;
+	position: relative;
+}
+
+.tripform_title_h2 {
+	font-size: 36px;
+	text-transform: uppercase;
+	text-align: center;
+	font-weight: 700;
+	margin-bottom: 10px;
+	font-family: "Raleway", sans-serif;
+	padding: 0;
+	color: white;
+}
+
+.tripform_title_h2::before {
+	content: "";
+	position: absolute;
+	display: block;
+	width: 60px;
+	height: 5px;
+	background: #188cbd;
+	bottom: 0;
+	left: calc(50% - 25px);
+}
+
+.tripform {
+	flex: 1;
+	margin-top: 4rem;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	gap: 2rem;
+	position: relative;
+}
+
+#form_trip {
+	display: flex;
+	flex-direction: column;
+	gap: 0.75rem;
+}
+
+.form_trip_input {
+	background-color: transparent;
+	border: none;
+	border-bottom: 1px solid white;
+	border-radius: 0;
+	color: #fff;
+}
+
+.form_trip_textarea {
+	background-color: transparent;
+	border: none;
+	border-bottom: 1px solid white;
+	border-radius: 0;
+	color: #fff;
+	width: 100%;
+}
+
+.form_trip_textarea:focus {
+	border: 1px solid white;
+	box-shadow: none;
+}
+
+.form_trip_label {
+	color: rgb(134, 134, 134);
+}
+
+.form_trip_input:focus {
+	border: 1px solid #fff;
+	box-shadow: none;
+}
+
+.btn_create_container {
+	display: flex;
+	justify-content: center;
+}
+
+.btn_create {
+	width: 100%;
+	background-color: transparent;
+	position: relative;
+	z-index: 1;
+	border-radius: 0;
+	border-color: #fff;
+	transition: 0.5s;
+}
+
+.btn_create:hover {
+	background-color: #188cbd;
+	border-color: #188cbd;
+}
+
+.btn_create:active {
+	box-shadow: none;
+	outline: 0;
+}
+
+.image_trip {
+	width: 250px;
+	height: 150px;
+	border-radius: 10px;
+	border: 1px solid #fff;
+}
+
+.form_trip_select {
+	width: 100%;
+	background-color: transparent;
+	border: none;
+	border-bottom: 1px solid white;
+	border-radius: 0;
+	color: #fff;
+}
+
+.form_trip_select:focus {
+	color: white;
+	background-color: #188cbd;
+}

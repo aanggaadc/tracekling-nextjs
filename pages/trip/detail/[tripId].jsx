@@ -16,7 +16,7 @@ import { RiArrowRightCircleFill } from "react-icons/ri";
 import { IoIosPerson } from "react-icons/io";
 import PrivateRoutes from "../../../components/routes/PrivateRoutes";
 
-function DetailTrip({tripData, otherTripData, tripStatus}) {
+function DetailTrip({tripData, otherTripData}) {
 	const router = useRouter();
 	const { tripId } = router.query;
 	const [status, setStatus] = useState();
@@ -321,9 +321,11 @@ export default DetailTrip;
 
 export const getServerSideProps = async (context) => {
 	try {
-		const dataTrip = await Axios.get(`${API_URL}/trip/detail/${context.params.tripId}`)
-		const dataOtherTrip = await Axios.get(`${API_URL}/trip/other_trip/${context.params.tripId}`)
-		// const tripStatus = await Axios.get(`${API_URL}/trip/join_verification/${context.params.tripId}`)
+		const {tripId} = context.params
+
+		const dataTrip = await Axios.get(`${API_URL}/trip/detail/${tripId}`)
+		const dataOtherTrip = await Axios.get(`${API_URL}/trip/other_trip/${tripId}`)
+		// const tripStatus = await Axios.get(`${API_URL}/trip/join_verification/${tripId}`)
 
 		return {
 			props: {
@@ -332,6 +334,7 @@ export const getServerSideProps = async (context) => {
 			}
 		}
 	} catch (error) {
+		console.log(error)
 		return {
 			props: {
 				tripData : {},

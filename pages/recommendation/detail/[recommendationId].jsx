@@ -15,7 +15,7 @@ import moment from "moment";
 import Head from "next/head";
 import PrivateRoutes from "../../../components/routes/PrivateRoutes";
 
-function DetailRecommendationTrip() {
+function DetailRecommendationTrip({recommendationData, otherTripData}) {
 	const router = useRouter();
 	const { recommendationId } = router.query;
 	const [dataOtherTrip, setDataOtherTrip] = useState([]);
@@ -28,40 +28,26 @@ function DetailRecommendationTrip() {
 	const handleShow = () => setShow(true);
 	// For Modal Operation
 
-	const getDataOtherTrip = () => {
-		setSpinner(true);
-		Axios.get(`${API_URL}/trip/other_trip/${recommendationId}`)
-			.then((response) => {
-				setDataOtherTrip(response.data.data);
-				setTimeout(() => {
-					setSpinner(false);
-				}, 1800);
-			})
-			.catch((error) => {
-				console.log(error);
-			});
-	};
+	const getRecommendationData = () => {
+		setTrip({
+			recomendation_id: recommendationData.recomendation_id,
+			adminMainId: recommendationData.adminMainId,
+			trip_image: API_URL + recommendationData.trip_image,
+			destination: recommendationData.destination,
+			description: recommendationData.description,
+		})	
+	}
 
+	const getDataOtherTrip = () => {
+		setSpinner(true)
+		setDataOtherTrip(otherTripData)
+		setTimeout(() => {
+			setSpinner(false)
+		}, 1500);
+				
+	};
 	useEffect(() => {
-		Axios.get(`${API_URL}/recomendation/detail/${recommendationId}`)
-			.then((response) => {
-				const apiData = response.data.data;
-				setTrip({
-					recomendation_id: apiData.recomendation_id,
-					adminMainId: apiData.adminMainId,
-					trip_image: API_URL + apiData.trip_image,
-					destination: apiData.destination,
-					description: apiData.description,
-				});
-			})
-			.catch((error) => {
-				if (error.response) {
-					toast.error(error.response.data.message);
-				} else {
-					toast.error("Something Wrong");
-				}
-				router.push("/");
-			});
+		getRecommendationData()
 		getDataOtherTrip();
 		window.scrollTo({ top: 0, behavior: "smooth" });
 	}, [recommendationId]);
@@ -279,3 +265,27 @@ function DetailRecommendationTrip() {
 }
 
 export default DetailRecommendationTrip;
+
+export const getServerSideProps = async (context) => {
+	try {
+		const {recommendationId} = context.params
+
+		const dataRecommendation = await Axios.get(`${API_URL}/recomendation/detail/${recommendationId}`)
+		const dataOtherTrip = await Axios.get(`${API_URL}/trip/other_trip/${recommendationId}`)
+
+		return {
+			props: {
+				recommendationData : dataRecommendation.data.data,
+				otherTripData : dataOtherTrip.data.data
+			}
+		}
+	} catch (error) {
+		console.log(error)
+		return {
+			props: {
+				tripData : {},
+				otherTripData : {}
+			}
+		}
+	}
+}

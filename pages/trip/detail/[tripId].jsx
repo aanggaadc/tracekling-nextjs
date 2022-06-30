@@ -16,7 +16,7 @@ import { RiArrowRightCircleFill } from "react-icons/ri";
 import { IoIosPerson } from "react-icons/io";
 import PrivateRoutes from "../../../components/routes/PrivateRoutes";
 
-function DetailTrip() {
+function DetailTrip({tripData, otherTripData, tripStatus}) {
 	const router = useRouter();
 	const { tripId } = router.query;
 	const [status, setStatus] = useState();
@@ -30,6 +30,8 @@ function DetailTrip() {
 	//   const { user } = useSelector((state) => {
 	//     return state;
 	//   });
+
+	
 
 	const [trip, setTrip] = useState({
 		trip_id: "",
@@ -49,25 +51,16 @@ function DetailTrip() {
 		location: "",
 		phone_number: "",
 	});
+
 	const memberPercent = (trip.count_member * 100) / trip.max_member;
 	const sisa = 100 - memberPercent;
 
 	const getDataOtherTrip = () => {
 		setSpinner(true);
-		Axios.get(`${API_URL}/trip/other_trip/${tripId}`)
-			.then((response) => {
-				setDataOtherTrip(response.data.data);
-				setTimeout(() => {
-					setSpinner(false);
-				}, 1800);
-			})
-			.catch((error) => {
-				if (error.response) {
-					toast.error(error.response.data.message);
-				} else {
-					toast.error("Something Wrong");
-				}
-			});
+		setDataOtherTrip(otherTripData)
+		setTimeout(() => {
+			setSpinner(false);
+		}, 1500);
 	};
 
 	const getVerfication = () => {
@@ -81,36 +74,24 @@ function DetailTrip() {
 	};
 
 	const getTrip = () => {
-		Axios.get(`${API_URL}/trip/detail/${tripId}`)
-			.then((response) => {
-				const apiData = response.data.data;
-				setTrip({
-					trip_id: apiData.trip_id,
-					owner_id: apiData.owner_id,
-					trip_image: API_URL + apiData.trip_image,
-					destination: apiData.destination,
-					trip_name: apiData.trip_name,
-					start_date: apiData.start_date,
-					end_date: apiData.end_date,
-					count_member: apiData.count_member,
-					max_member: apiData.max_member,
-					description: apiData.description,
-					trip_status: apiData.trip_status,
-					username: apiData.username,
-					avatar_url: API_URL + apiData.avatar_url,
-					interest: apiData.interest,
-					location: apiData.location,
-					phone_number: apiData.phone_number,
-				});
-			})
-			.catch((error) => {
-				if (error.response) {
-					toast.error(error.response.data.message);
-				} else {
-					toast.error("Something Wrong");
-				}
-				router.push("/");
-			});
+		setTrip({
+			trip_id: tripData.trip_id,
+			owner_id: tripData.owner_id,
+			trip_image: API_URL + tripData.trip_image,
+			destination: tripData.destination,
+			trip_name: tripData.trip_name,
+			start_date: tripData.start_date,
+			end_date: tripData.end_date,
+			count_member: tripData.count_member,
+			max_member: tripData.max_member,
+			description: tripData.description,
+			trip_status: tripData.trip_status,
+			username: tripData.username,
+			avatar_url: API_URL + tripData.avatar_url,
+			interest: tripData.interest,
+			location: tripData.location,
+			phone_number: tripData.phone_number,
+		});
 	};
 
 	const joinTrip = () => {
@@ -336,3 +317,26 @@ function DetailTrip() {
 }
 
 export default DetailTrip;
+
+
+export const getServerSideProps = async (context) => {
+	try {
+		const dataTrip = await Axios.get(`${API_URL}/trip/detail/${context.params.tripId}`)
+		const dataOtherTrip = await Axios.get(`${API_URL}/trip/other_trip/${context.params.tripId}`)
+		// const tripStatus = await Axios.get(`${API_URL}/trip/join_verification/${context.params.tripId}`)
+
+		return {
+			props: {
+				tripData : dataTrip.data.data,
+				otherTripData : dataOtherTrip.data.data
+			}
+		}
+	} catch (error) {
+		return {
+			props: {
+				tripData : {},
+				otherTripData : {}
+			}
+		}
+	}
+}
